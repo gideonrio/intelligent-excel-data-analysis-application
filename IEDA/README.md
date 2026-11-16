@@ -1,189 +1,283 @@
 # 📊 Intelligent Excel Data Analyst (IEDA)
 
-An intelligent desktop application built with **Python** and **PyQt5** that transforms raw Excel data into actionable insights through interactive dashboards, ML-powered predictions, automated reporting, and LLM-based conversational analytics.
+An intelligent desktop application developed using **Python, PyQt5, Machine Learning, and Large Language Models (LLMs)** that transforms raw Excel data into meaningful insights.
+
+The application provides interactive dashboards, automated Excel operations, ML-powered predictions, PDF report generation, and conversational data analysis through Ollama integration.
 
 ---
 
 ## ✨ Features
 
-### 📁 Excel File Management
-- Load and manage multiple Excel files (`.xlsx`, `.xls`) simultaneously
-- Preview data (first 10 rows) or view the full sheet in a pop-up dialog
-- Track loaded DataFrames with shape, column info, and metadata
+### 📁 1. Excel File Management
+- Load and manage multiple Excel files (`.xlsx`, `.xls`) simultaneously.
+- Preview the first 10 rows of Excel data.
+- View complete sheets in a pop-up dialog.
+- Track loaded DataFrames with shape, column information, and metadata.
 
-### 📊 Interactive Dashboard
-- **Chart Types**: Line, Bar, Pie, Scatter Plot, and Histogram
-- **Data Filtering**: Filter data by column values before visualization
-- **Multi-Column Selection**: Select multiple columns for comparison charts
-- **Customizable**: Set chart titles, histogram bin counts, and more
-- **Auto-Export**: Charts are automatically saved as PDF reports
+### 📊 2. Interactive Dashboard
+- Generate different chart types:
+  - Line Chart
+  - Bar Chart
+  - Pie Chart
+  - Scatter Plot
+  - Histogram
+- Filter data by column values before visualization.
+- Select multiple columns for comparison charts.
+- Customize chart titles and histogram bin counts.
+- Automatically save charts as PDF reports.
 
-### 🔧 Excel Operations
-- **Merge DataFrames**: Combine two DataFrames using inner, left, right, or outer joins
-- **Filter Data**: Filter by column values (supports `==`, `!=`, `>`, `<`, `>=`, `<=`, `contains`) or by row index
-- **Search & Highlight**: Search across all columns for specific values
-- All operation results displayed in pop-up dialogs and saved as downloadable files
+### 🔧 3. Excel Operations
+- Merge DataFrames using Inner, Left, Right, and Outer Joins.
+- Filter data using conditions:
+  - `==`
+  - `!=`
+  - `>`
+  - `<`
+  - `>=`
+  - `<=`
+  - `contains`
+- Filter data by row index.
+- Search and highlight specific values across columns.
+- Display operation results in pop-up dialogs.
+- Save processed results as downloadable files.
 
-### 📈 Data Analysis
-- **Descriptive Statistics**: Mean, std, min/max, quartiles for numeric columns
-- **Missing Values Analysis**: Total missing count and percentage per column
-- **Value Counts**: Frequency distribution for categorical columns
-- **PDF Report Generation**: Export analysis results as formatted PDF reports
+### 📈 4. Data Analysis
+- Generate descriptive statistics:
+  - Mean
+  - Standard Deviation
+  - Minimum and Maximum
+  - Quartiles
+- Analyze missing values.
+- Calculate missing value counts and percentages.
+- Generate frequency distributions using Value Counts.
+- Export analysis results as formatted PDF reports.
 
-### 🤖 ML Prediction
-- **Linear Regression**: For numeric target prediction with R², MSE, MAE metrics
-- **Decision Tree Classifier**: For categorical classification with accuracy and classification report
-- **Feature Scaling**: Optional StandardScaler for feature normalization
-- **Live Prediction**: Enter new values and get real-time predictions
-- **LLM Explanation**: Ask the LLM to explain model results in plain language
+### 🤖 5. Machine Learning Prediction
+- **Linear Regression:** Predict numerical values.
+- **Decision Tree Classifier:** Perform categorical classification.
+- Evaluate models using:
+  - R² Score
+  - Mean Squared Error (MSE)
+  - Mean Absolute Error (MAE)
+  - Accuracy
+  - Classification Report
+- Optional feature scaling using StandardScaler.
+- Enter new values and receive live predictions.
+- Get plain-language explanations of model results using an LLM.
 
-### 💬 LLM Chat (Ollama Integration)
-- Conversational AI powered by **Ollama** (using the `phi3` model)
-- Optional Excel data context injection for data-aware responses
-- Chat history with clear functionality
+### 💬 6. LLM Chat – Ollama Integration
+- Conversational AI powered by Ollama.
+- Uses the `phi3` language model.
+- Supports Excel data context injection for data-aware responses.
+- Maintains chat history.
+- Provides chat history clearing functionality.
 
-### 🤖 Automation Bot
-- **Google Drive Integration**: Authenticate and fetch Excel files directly from Google Drive
-- **Automated Operations**: Clear missing values, generate dashboard/analysis reports
-- **Scheduling**: Schedule daily automation tasks at a specified time
-- **Auto-Report Generation**: Generate and save PDF reports automatically
+### 🤖 7. Automation Bot
+- Google Drive integration.
+- Authenticate and fetch Excel files directly from Google Drive.
+- Automate Excel operations.
+- Clear missing values.
+- Generate dashboard and analysis reports.
+- Schedule daily automation tasks.
+- Automatically generate and save PDF reports.
 
-### 📂 Files & Reports Tab
-- Central hub for all generated files (PDFs, Excel exports)
-- **Download**: Save generated files to your local machine
-- **Email**: Send reports directly via email (SMTP integration)
+### 📂 8. Files & Reports
+- Centralized location for generated files.
+- Manage PDF reports and Excel exports.
+- Download generated files to your computer.
+- Send reports through email using SMTP integration.
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Category | Technology |
-|----------|-----------|
-| **Language** | Python 3.9+ |
-| **GUI Framework** | PyQt5 |
-| **Data Processing** | Pandas, NumPy |
-| **Visualization** | Matplotlib |
-| **Machine Learning** | Scikit-learn (LinearRegression, DecisionTreeClassifier, StandardScaler) |
-| **LLM Integration** | Ollama (phi3 model) |
-| **Report Generation** | FPDF |
-| **Cloud Storage** | PyDrive2 (Google Drive API) |
-| **Email** | smtplib (SMTP) |
-| **Scheduling** | schedule |
-| **Theming** | Custom QSS Dark Theme |
+| Category | Technologies |
+|---|---|
+| Programming Language | Python |
+| GUI Framework | PyQt5 |
+| Data Processing | Pandas, NumPy |
+| Data Visualization | Matplotlib |
+| Machine Learning | Scikit-learn |
+| LLM Integration | Ollama (phi3) |
+| Report Generation | FPDF |
+| Cloud Storage | PyDrive2, Google Drive API |
+| Email Integration | SMTP, smtplib |
+| Task Scheduling | Schedule |
+| UI Styling | Custom QSS Dark Theme |
 
 ---
 
 ## 📁 Project Structure
 
-```
-IEDA/
-├── Excel Automation System/
-│   ├── main_app.py            # Main application entry point & core UI
-│   ├── AutomatedBotTab.py     # Google Drive automation & report generation
-│   ├── analysis_tab.py        # Data analysis tab (descriptive stats, missing values)
-│   ├── dashboard_tab.py       # Dashboard widget for chart generation
-│   ├── prediction_tab.py      # ML prediction tab UI
-│   ├── merge_tab.py           # DataFrame merge tab UI
-│   ├── llm_chat_tab.py        # LLM chat tab UI
-│   ├── llm_worker.py          # Background thread worker for Ollama LLM calls
-│   ├── checked.png            # Custom checkbox icon (checked)
-│   ├── unchecked.png          # Custom checkbox icon (unchecked)
-│   ├── down_arrow.png         # Custom dropdown arrow icon
-│   ├── .gitignore             # Git ignore rules
-│   └── README.md              # This file
-└── .gitignore                 # Root-level Git ignore rules
+```text
+intelligent-excel-data-analysis-application/
+│
+├── IEDA/
+│   └── excel_llm_desktop/
+│       ├── main_app.py
+│       ├── AutomatedBotTab.py
+│       ├── analysis_tab.py
+│       ├── dashboard_tab.py
+│       ├── prediction_tab.py
+│       ├── merge_tab.py
+│       ├── llm_chat_tab.py
+│       ├── llm_worker.py
+│       ├── checked.png
+│       ├── unchecked.png
+│       ├── down_arrow.png
+│       └── other project files
+│
+├── .gitignore
+└── README.md
 ```
 
 ---
 
 ## 🚀 Getting Started
 
-### Prerequisites
-- **Python 3.9+** installed
-- **Ollama** installed and running locally (for LLM features)
-- **Google Cloud Project** with Drive API enabled (for Automation Bot)
+### 1. Prerequisites
 
-### 1. Clone the Repository
+Make sure you have installed:
+
+- Python 3.9 or above
+- Git
+- Visual Studio Code
+- Ollama (for LLM features)
+
+### 2. Clone the Repository
+
 ```bash
-git clone https://github.com/Karthikeyan-maran/IEDA.git
-cd IEDA/Excel\ Automation\ System
+git clone https://github.com/gideonrio/intelligent-excel-data-analysis-application.git
 ```
 
-### 2. Install Dependencies
+Navigate to the project directory:
+
 ```bash
-pip install PyQt5 pandas numpy matplotlib scikit-learn ollama fpdf pydrive2 schedule
+cd intelligent-excel-data-analysis-application
 ```
 
-### 3. Set Up Ollama (for LLM Features)
+Navigate to the application folder:
+
 ```bash
-# Install Ollama from https://ollama.com
-# Pull the phi3 model
+cd IEDA/excel_llm_desktop
+```
+
+### 3. Install Dependencies
+
+```bash
+python -m pip install PyQt5 pandas numpy matplotlib scikit-learn ollama fpdf pydrive2 schedule openpyxl xlrd
+```
+
+### 4. Set Up Ollama
+
+Install Ollama:
+
+https://ollama.com/
+
+Download the required model:
+
+```bash
 ollama pull phi3
 ```
 
-### 4. Set Up Google Drive (for Automation Bot)
-1. Create a project in [Google Cloud Console](https://console.cloud.google.com/)
-2. Enable the **Google Drive API**
-3. Download `client_secrets.json` and place it in the project root
-4. See [PyDrive2 Quickstart](https://docs.iterative.ai/PyDrive2/quickstart/#authentication) for details
+Make sure Ollama is running before using the LLM Chat functionality.
 
-### 5. Run the Application
+### 5. Set Up Google Drive Integration
+
+To use the Automation Bot:
+
+1. Open Google Cloud Console.
+2. Create a Google Cloud project.
+3. Enable the Google Drive API.
+4. Configure OAuth credentials.
+5. Download the required `client_secrets.json` file.
+6. Place the credentials file in the location expected by the application.
+
+Google Cloud Console:
+
+https://console.cloud.google.com/
+
+PyDrive2 Documentation:
+
+https://docs.iterative.ai/PyDrive2/quickstart/#authentication
+
+### 6. Run the Application
+
+Execute:
+
 ```bash
 python main_app.py
 ```
+
+The Intelligent Excel Data Analyst desktop application should now launch.
 
 ---
 
 ## 🎨 UI Theme
 
-The application features a **modern dark theme** built with custom QSS styling:
+The application features a modern dark-themed interface using custom QSS styling.
+
+### Design Highlights
+
 - Deep navy background (`#1a1a2e`)
 - Purple accent buttons (`#3e2f5b`)
-- Smooth border-radius on all components
-- Custom checkbox and dropdown icons
-- Dark-mode compatible Matplotlib charts
+- Rounded component borders.
+- Custom checkbox icons.
+- Custom dropdown arrow icons.
+- Dark-mode-compatible Matplotlib charts.
 
 ---
 
-## 📧 Email Configuration
+## 📋 How to Use
 
-To use the email feature, update the sender credentials in `main_app.py` (`FilesTab.email_file` method):
-
-```python
-sender_email = "your_email@gmail.com"
-sender_password = "your_app_password"
-```
-
-> **Note**: For Gmail, you must enable [App Passwords](https://support.google.com/accounts/answer/185833) in your Google Account security settings.
+1. **Load Data:** Import one or more Excel spreadsheets.
+2. **Dashboard:** Create interactive charts and visualizations.
+3. **Analysis:** Explore descriptive statistics and missing values.
+4. **Prediction:** Train machine learning models and generate predictions.
+5. **Merge:** Combine multiple DataFrames.
+6. **LLM Chat:** Ask questions about your Excel data.
+7. **Automation:** Configure automated tasks and scheduled reports.
+8. **Files & Reports:** Download or email generated reports.
 
 ---
 
-## 📋 Usage
+## 🔐 Security Notes
 
-1. **Load Data**: Click "Add Excel File(s)" to import your spreadsheets
-2. **Explore**: Use the Dashboard tab to create charts and visualizations
-3. **Analyze**: Switch to the Analysis tab for statistical summaries
-4. **Predict**: Train ML models in the Prediction tab
-5. **Chat**: Ask the LLM questions about your data in the LLM Chat tab
-6. **Automate**: Set up scheduled tasks in the Automation Bot tab
-7. **Export**: Download or email reports from the Files tab
+- Never upload Google Drive credentials such as `client_secrets.json` to a public repository.
+- Do not store personal email passwords directly in source code.
+- Use environment variables for sensitive credentials.
+- Keep API keys and authentication files private.
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Suggestions, feedback, and improvements are welcome.
+
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes.
+4. Commit your changes.
+5. Submit a Pull Request.
 
 ---
 
 ## 📝 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is available under the MIT License, subject to the license included in the repository.
 
 ---
 
-## 👤 Author
+## 👨‍💻 Developer
 
-**Karthikeyan Maran**  
-- GitHub: [@Karthikeyan-maran](https://github.com/Karthikeyan-maran)
+**Gideon**
 
+B.Tech – Information Technology
+
+Interested in Software Development, Artificial Intelligence, Machine Learning, and Data Analytics.
+
+- GitHub: https://github.com/gideonrio
+
+---
+
+⭐ If you find this project interesting, consider giving the repository a star!
